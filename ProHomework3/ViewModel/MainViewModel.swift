@@ -1,7 +1,6 @@
 import MapKit
 
 class MainViewModel {
-          
     var venue: [Venue] = []
     var annotations: [MapAnnotation] = []
     var filteredAnnotations: [MapAnnotation] = []
@@ -10,8 +9,7 @@ class MainViewModel {
     var lng = 0.0
     
     func updatePlaces(completion: @escaping () -> Void) {
-        
-        
+                
         PlacesLoader.loadPlaces(lat: lat, lng: lng) { (venue) in
             self.venue = venue
             
@@ -26,8 +24,7 @@ class MainViewModel {
             }
             print("\(self.annotations[0].subtitle)<---------------")
             completion()
-        }
-        
+        }        
     }
     
     func updateLocation(completion: @escaping () -> Void) {

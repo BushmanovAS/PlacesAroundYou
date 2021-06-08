@@ -8,7 +8,7 @@ class LocationManager: NSObject {
     
     var isEnabled: Bool { return CLLocationManager.isEnabled}
     
-    var canRequestAccess: Bool { return CLLocationManager.canRequestService}
+    var canRequestAccess: Bool { return CLLocationManager.canRequestService }
     
     private var accessRequestCompletion: AccessRequestBlock?
     private var locationRequestCompletion: LocationRequestBlock?
@@ -43,7 +43,6 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = manager.location?.coordinate else { return }
         
         locationRequestCompletion?(location)
-        //если нужно постоянное обновление позиции пользователя, а не одинарное получение, необходимо закомментировать следующие 2 строчки
         locationRequestCompletion = nil
         manager.startUpdatingLocation()
     }

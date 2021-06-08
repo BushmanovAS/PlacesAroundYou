@@ -45,8 +45,7 @@ extension MainViewController: MKMapViewDelegate {
         nameLabel.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y + 20, width: 100, height: 20)
         nameLabel.sizeToFit()
         nameLabel.backgroundColor = .systemBlue
-        map.addSubview(nameLabel)
-        
+        map.addSubview(nameLabel)        
         print(view.annotation?.title)
         print(view.frame)
     }
@@ -56,13 +55,14 @@ extension MainViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        
         viewModel.annotations.removeAll()
         viewModel.lat = mapView.centerCoordinate.latitude
         viewModel.lng = mapView.centerCoordinate.longitude
+        
         viewModel.updatePlaces {
             self.map.addAnnotations(self.viewModel.annotations)
         }
+        
         print(mapView.centerCoordinate)
     }
     

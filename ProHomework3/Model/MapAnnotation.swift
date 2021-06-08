@@ -1,15 +1,7 @@
-//
-//  MapAnnotations.swift
-//  ProHomework3
-//
-//  Created by Антон Бушманов on 28.05.2021.
-//
-
 import Foundation
 import MapKit
 
-class MapAnnotation: NSObject, MKAnnotation {
-    
+class MapAnnotation: NSObject, MKAnnotation {    
     var title: String?
     var subtitle: String?
     var coordinate: CLLocationCoordinate2D
